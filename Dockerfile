@@ -35,7 +35,6 @@ RUN pip install scipy
 
 RUN wget -P /usr/local/bin ${FASTTREE_URL}
 
-
 ################# MCL install ########################
 
 WORKDIR /opt
@@ -44,7 +43,7 @@ WORKDIR ${MCL_PATH}
 
 RUN ./configure --prefix=/usr/local && make install
 
-########################### orthoFinder install #############################
+########################### orthoFinder install & run tests #############################
 
 WORKDIR /opt
 RUN wget ${ORTHOFINDER_URL} --no-check-certificate && unzip ${ORTHOFINDER_FILE_NAME}
@@ -54,7 +53,7 @@ WORKDIR /root
 
 RUN orthofinder.py -f ${ORTHOFINDER_PATH}/ExampleDataset/
 
-########################## clean #################################
+########################## clean source file #################################
 
 RUN rm -r /opt/0.7.1.zip
 
