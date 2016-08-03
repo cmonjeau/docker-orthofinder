@@ -12,6 +12,10 @@ Emms, D.M. and Kelly, S. (2015) OrthoFinder: solving fundamental biases in whole
 
 docker pull cmonjeau/orthofinder
 
+### Build docker image from Dockerfile
+
+docker build --rm -t username/imagename .
+
 ### Use orthofinder in docker
 
 docker run -it --rm cmonjeau/orthofinder orthofinder.py -f fasta_directory -t number_of_processes
