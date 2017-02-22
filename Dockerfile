@@ -55,7 +55,7 @@ RUN orthofinder.py -f ${ORTHOFINDER_PATH}/ExampleDataset/
 
 ########################## clean source file #################################
 
-RUN rm -r /opt/0.7.1.zip
+RUN rm -r /opt/1.1.4.zip
 
 ###############################################################
 
