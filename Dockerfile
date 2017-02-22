@@ -6,7 +6,7 @@
 # Set the base image to debian blast
 FROM simonalpha/ncbi-blast-docker
 
-LABEL version="0.7.1"
+LABEL version="1.1.4"
 
 # Set noninterative mode
 ENV DEBIAN_FRONTEND noninteractive
@@ -17,9 +17,9 @@ ENV FASTTREE_URL http://www.microbesonline.org/fasttree/FastTree
 ENV MCL_URL http://micans.org/mcl/src/mcl-14-137.tar.gz
 ENV MCL_PATH /opt/mcl-14-137
 
-ENV ORTHOFINDER_URL https://github.com/davidemms/OrthoFinder/archive/0.7.1.zip
-ENV ORTHOFINDER_FILE_NAME 0.7.1.zip
-ENV ORTHOFINDER_PATH /opt/OrthoFinder-0.7.1
+ENV ORTHOFINDER_URL https://github.com/davidemms/OrthoFinder/archive/1.1.4.zip
+ENV ORTHOFINDER_FILE_NAME 1.1.4.zip
+ENV ORTHOFINDER_PATH /opt/OrthoFinder-1.1.4
 
 ################## Update & upgrade ######################
 
