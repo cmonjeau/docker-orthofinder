@@ -19,3 +19,5 @@ docker build --rm -t username/imagename .
 ### Use orthofinder in docker
 
 docker run -it --rm cmonjeau/orthofinder orthofinder.py -f fasta_directory -t number_of_processes
+
+docker run -it --rm cmonjeau/orthofinder orthofinder.py -f fasta_directory -t n_blast_processes -a n_orthofinder_threads -S diamond
