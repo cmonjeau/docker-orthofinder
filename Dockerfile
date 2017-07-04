@@ -6,7 +6,7 @@
 # Set the base image to debian blast
 FROM simonalpha/ncbi-blast-docker
 
-LABEL version="1.1.4"
+LABEL version="1.1.8"
 
 # Set noninterative mode
 ENV DEBIAN_FRONTEND noninteractive
@@ -56,10 +56,16 @@ WORKDIR ${FASTME_PATH}
 
 RUN ./configure --prefix=/usr/local && make install
 
+################# DIAMOND install ########################
+ENV DIAMOND_URL https://github.com/bbuchfink/diamond/releases/download/v0.9.9/diamond-linux64.tar.gz
+
+WORKDIR /opt
+RUN wget ${DIAMOND_URL} --no-check-certificate -O - | tar xvzf - && mv diamond /usr/local/bin/diamond-sse2
+
 ########################### orthoFinder install & run tests #############################
-ENV ORTHOFINDER_URL https://github.com/davidemms/OrthoFinder/archive/1.1.4.zip
-ENV ORTHOFINDER_FILE_NAME 1.1.4.zip
-ENV ORTHOFINDER_PATH /opt/OrthoFinder-1.1.4/orthofinder
+ENV ORTHOFINDER_URL https://github.com/davidemms/OrthoFinder/archive/1.1.8.zip
+ENV ORTHOFINDER_FILE_NAME 1.1.8.zip
+ENV ORTHOFINDER_PATH /opt/OrthoFinder-1.1.8/orthofinder
 
 WORKDIR /opt
 RUN wget ${ORTHOFINDER_URL} --no-check-certificate && unzip ${ORTHOFINDER_FILE_NAME}
@@ -71,7 +77,7 @@ RUN orthofinder.py -f ${ORTHOFINDER_PATH}/ExampleDataset/
 
 ########################## clean source file #################################
 
-RUN rm -r /opt/1.1.4.zip
+RUN rm -r /opt/1.1.8.zip
 
 ###############################################################
 
