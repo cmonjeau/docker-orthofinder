@@ -33,7 +33,8 @@ RUN pip install scipy
 
 ################# Fastree install ########################
 
-RUN wget -P /usr/local/bin ${FASTTREE_URL}
+RUN wget -P /usr/local/bin ${FASTTREE_URL} && \
+  chmod a+x /usr/local/bin/FastTree
 
 ################# MCL install ########################
 
