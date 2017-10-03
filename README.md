@@ -1,4 +1,4 @@
-### Orthofinder
+# Orthofinder
 
 OrthoFinder is a program for finding orthogroups from one or more species.
 An orthogroup is the set of genes that are descended from a single gene in the last common ancestor of the species being clustered.
@@ -8,18 +8,26 @@ For more details see the OrthoFinder paper below.
 
 > Emms, D.M. and Kelly, S. (2015) OrthoFinder: solving fundamental biases in whole genome comparisons dramatically improves orthogroup inference accuracy, Genome Biology 16:157
 
-### Import docker image
+## Usage
 
-    docker pull cmonjeau/orthofinder
+Pull from [dockerhub](https://hub.docker.com/r/cmonjeau/orthofinder/)
 
-### Build docker image from Dockerfile
+```bash
+docker pull cmonjeau/orthofinder
+```
 
-    docker build --rm -t username/imagename .
+Or build from this repository
 
-### Use orthofinder in docker
 
-    docker run -it --rm -v "/path/to/fasta_directory":/input cmonjeau/orthofinder orthofinder.py -f /input -t n_blast_processes -a n_orthofinder_threads -S diamond
+```bash
+git clone https://github.com/cmonjeau/docker-orthofinder
+cd docker-orthofinder
+docker build -t orhtofinder .
+```
 
-### Use orthofinder to build trees
+Run a container
 
-    docker run -it --rm -v "/path/to/results_directory":/input cmonjeau/orthofinder trees_for_orthogroups.py /input/ -t 7
+```bash
+docker run -it --rm -v "/path/to/fasta_directory":/input cmonjeau/orthofinder orthofinder.py -f /input -t n_blast_processes -a n_orthofinder_threads -S diamond
+docker run -it --rm -v "/path/to/results_directory":/input cmonjeau/orthofinder trees_for_orthogroups.py /input/ -t 7
+```
