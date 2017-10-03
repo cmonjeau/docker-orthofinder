@@ -24,7 +24,8 @@ RUN pip install scipy
 ################# Fastree install ########################
 ENV FASTTREE_URL http://www.microbesonline.org/fasttree/FastTree
 
-RUN wget -P /usr/local/bin ${FASTTREE_URL}
+RUN wget -P /usr/local/bin ${FASTTREE_URL} && \
+  chmod a+x /usr/local/bin/FastTree
 
 ################# MCL install ########################
 ENV MCL_URL http://micans.org/mcl/src/mcl-14-137.tar.gz
