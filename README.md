@@ -1,4 +1,4 @@
-### Orthofinder
+# Orthofinder
 
 OrthoFinder is a program for finding orthogroups from one or more species. 
 An orthogroup is the set of genes that are descended from a single gene in the last common ancestor of the species being clustered. 
@@ -8,14 +8,25 @@ For more details see the OrthoFinder paper below.
 
 Emms, D.M. and Kelly, S. (2015) OrthoFinder: solving fundamental biases in whole genome comparisons dramatically improves orthogroup inference accuracy, Genome Biology 16:157
 
-### Import docker image
+## Usage
 
+Pull from [dockerhub](https://hub.docker.com/r/cmonjeau/orthofinder/)
+
+```bash
 docker pull cmonjeau/orthofinder
+```
 
-### Build docker image from Dockerfile
+Or build from this repository
 
-docker build --rm -t username/imagename .
+```bash
+git clone https://github.com/cmonjeau/docker-orthofinder
+cd docker-orthofinder
+docker build -t orhtofinder .
+```
 
-### Use orthofinder in docker
 
+Run a container
+
+```bash
 docker run -it --rm cmonjeau/orthofinder orthofinder.py -f fasta_directory -t number_of_processes
+```
