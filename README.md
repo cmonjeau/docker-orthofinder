@@ -18,7 +18,7 @@ For more details see the OrthoFinder paper below.
 
 ### Use orthofinder in docker
 
-    docker run -it --rm -v "/path/to/fasta_directory":/input cmonjeau/orthofinder orthofinder.py -f /input -t number_of_processes
+    docker run -it --rm -v "/path/to/fasta_directory":/input cmonjeau/orthofinder orthofinder.py -f /input -t n_blast_processes -a n_orthofinder_threads -S diamond
 
 ### Use orthofinder to build trees
 
